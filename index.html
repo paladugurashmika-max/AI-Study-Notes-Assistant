@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Study Notes Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">✦ StudyAI</h2>
+
+    <nav>
+      <a href="#" class="nav-link active">🏠 Dashboard</a>
+      <a href="#notes" class="nav-link">📝 My Notes</a>
+      <a href="#subjects" class="nav-link">📚 Subjects</a>
+      <a href="#ai-tools" class="nav-link">🤖 AI Study Tools</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <p>Study smarter, not harder ✨</p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+        <h1>Good morning, Scholar! 👋</h1>
+        <p class="subtitle">What would you like to learn today?</p>
+      </div>
+      <div class="avatar">S</div>
+    </header>
+
+    <section class="welcome-card">
+      <div>
+        <p class="eyebrow light">YOUR AI STUDY COMPANION</p>
+        <h2>Turn your learning into <br>something extraordinary.</h2>
+        <p>Create notes, simplify concepts, and prepare for exams.</p>
+        <button id="createNoteBtn" class="primary-btn">＋ Create New Note</button>
+      </div>
+      <div class="hero-icon">🧠</div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <span class="stat-icon purple">📝</span>
+        <p>Total Notes</p>
+        <h2 id="noteCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon blue">📚</span>
+        <p>Subjects</p>
+        <h2 id="subjectCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon orange">⚡</span>
+        <p>Study Streak</p>
+        <h2>Start today!</h2>
+      </article>
+    </section>
+
+    <section id="notes" class="section">
+      <div class="section-heading">
+        <div>
+          <h2>My Recent Notes</h2>
+          <p class="subtitle">Your knowledge, all in one place.</p>
+        </div>
+        <input id="searchInput" type="search" placeholder="Search notes...">
+      </div>
+
+      <div id="notesContainer" class="notes-grid"></div>
+      <p id="emptyMessage" class="empty-message">
+        No notes yet. Create your first note to get started!
+      </p>
+    </section>
+
+    <section id="subjects" class="section">
+      <div class="section-heading">
+        <div>
+          <h2>Explore Subjects</h2>
+          <p class="subtitle">Choose a subject to focus on.</p>
+        </div>
+      </div>
+
+      <div class="subjects-grid">
+        <button class="subject-card" data-subject="Computer Science">
+          <span>💻</span><strong>Computer Science</strong>
+        </button>
+        <button class="subject-card" data-subject="Mathematics">
+          <span>📐</span><strong>Mathematics</strong>
+        </button>
+        <button class="subject-card" data-subject="Science">
+          <span>🔬</span><strong>Science</strong>
+        </button>
+        <button class="subject-card" data-subject="Languages">
+          <span>📖</span><strong>Languages</strong>
+        </button>
+      </div>
+    </section>
+
+    <section id="ai-tools" class="section">
+      <div class="section-heading">
+        <div>
+          <h2>AI Study Tools</h2>
+          <p class="subtitle">Helpful shortcuts for your next study session.</p>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <button class="tool-card" data-tool="Summarizer">
+          <span>✨</span>
+          <strong>Smart Summarizer</strong>
+          <p>Turn lengthy text into concise notes.</p>
+        </button>
+        <button class="tool-card" data-tool="Quiz Generator">
+          <span>🧩</span>
+          <strong>Quiz Generator</strong>
+          <p>Practice with questions on your topic.</p>
+        </button>
+        <button class="tool-card" data-tool="Explain a Topic">
+          <span>💡</span>
+          <strong>Explain a Topic</strong>
+          <p>Make difficult concepts easier to understand.</p>
+        </button>
+      </div>
+      <p class="subtitle tool-note">AI tools will be connected to an AI service in a later step.</p>
+    </section>
+
+    <footer>Made for curious minds ✦ StudyAI</footer>
+  </main>
+
+  <dialog id="noteDialog">
+    <form id="noteForm">
+      <h2>Create a Study Note</h2>
+
+      <label for="noteTitle">Note title</label>
+      <input id="noteTitle" required maxlength="100"
+             placeholder="e.g. Introduction to JavaScript">
+
+      <label for="noteSubject">Subject</label>
+      <select id="noteSubject" required>
+        <option value="">Choose a subject</option>
+        <option>Computer Science</option>
+        <option>Mathematics</option>
+        <option>Science</option>
+        <option>Languages</option>
+        <option>Other</option>
+      </select>
+
+      <label for="noteContent">Your notes</label>
+      <textarea id="noteContent" required rows="5"
+                placeholder="Write what you learned..."></textarea>
+
+      <div class="dialog-actions">
+        <button type="button" id="cancelBtn" class="secondary-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save Note</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="infoDialog">
+    <div class="info-dialog-content">
+      <h2 id="infoTitle">Study Tool</h2>
+      <p id="infoMessage"></p>
+      <button id="closeInfoBtn" class="primary-btn">Got it!</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
